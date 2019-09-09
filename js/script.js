@@ -18,3 +18,51 @@ if (playerInput == 1) {
 } else if (playerInput == 2) {
   playerMove = "papier";
 } else playerMove = "nożyczki";
+
+switch (playerMove) {
+  case "papier":
+    if (computerMove == "kamień")
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc <span class="green">wygrałeś!</span>`
+      );
+    else if (computerMove == "nożyczki")
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc <span class="red">przegrałeś!</span>`
+      );
+    else
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc remis!`
+      );
+    break;
+  case "kamień":
+    if (computerMove == "nożyczki")
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc <span class="green">wygrałeś!</span>`
+      );
+    else if (computerMove == "papier")
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc <span class="red">przegrałeś!</span>`
+      );
+    else
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc remis!`
+      );
+    break;
+  case "nożyczki":
+    if (computerMove == "papier")
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc <span class="green">wygrałeś!</span>`
+      );
+    else if (computerMove == "kamień")
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc <span class="red">przegrałeś!</span>`
+      );
+    else
+      printMessage(
+        `Komputer wybrał <b>${computerMove}</b>, ty wybrałeś <b>${playerMove}</b> więc remis!`
+      );
+    break;
+  case "nieznany ruch":
+    printMessage(`Wprowadziłeś złą liczbę!`);
+    break;
+}
