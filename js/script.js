@@ -1,5 +1,13 @@
-let playerMove = `papier`;
+let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-printMessage(
-  "Zagrałem kamień! Jeśli Twój " + playerMove + " to papier, to wygrywasz!"
-);
+console.log("Wylosowana liczba to: " + randomNumber);
+
+let computerMove = "nieznany ruch";
+
+if (randomNumber == 1) {
+  computerMove = "kamień";
+} else if (randomNumber == 2) {
+  computerMove = "papier";
+} else computerMove = "nożyczki";
+
+printMessage("Mój ruch to: " + computerMove);
