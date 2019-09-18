@@ -1,7 +1,14 @@
-function playGame(argPlayerInput) {
-  clearMessages();
-  let playerInput = argPlayerInput;
-  function getMoveName(argMoveId) {
+const startGame = function(argPlayerInput) {
+  const playGame = function(argPlayerInput) {
+    clearMessages();
+    const playerInput = argPlayerInput;
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
+    const computerMove = getMoveName(randomNumber);
+    const playerMove = getMoveName(playerInput);
+    displayResult(playerMove, computerMove);
+  };
+
+  const getMoveName = function(argMoveId) {
     if (argMoveId == 1) {
       return "kamień";
     } else if (argMoveId == 2) return "papier";
@@ -10,8 +17,9 @@ function playGame(argPlayerInput) {
       printMessage("Nie znam ruchu o id " + argMoveId + ".");
       return "nieznany ruch";
     }
-  }
-  function displayResult(argPlayerMove, argComputerMove) {
+  };
+
+  const displayResult = function(argPlayerMove, argComputerMove) {
     switch (argPlayerMove) {
       case "papier":
         if (argComputerMove == "kamień")
@@ -59,20 +67,15 @@ function playGame(argPlayerInput) {
         printMessage(`Wprowadziłeś złą liczbę!`);
         break;
     }
-  }
-
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
-  let computerMove = getMoveName(randomNumber);
-  let playerMove = getMoveName(playerInput);
-  displayResult(playerMove, computerMove);
-}
-
+  };
+  playGame(argPlayerInput);
+};
 document.getElementById("play-rock").addEventListener("click", function() {
-  playGame(1);
+  startGame(1);
 });
 document.getElementById("play-paper").addEventListener("click", function() {
-  playGame(2);
+  startGame(2);
 });
 document.getElementById("play-scissors").addEventListener("click", function() {
-  playGame(3);
+  startGame(3);
 });
