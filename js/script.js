@@ -70,6 +70,7 @@ const startGame = function(argPlayerInput) {
   };
   playGame(argPlayerInput);
 };
+
 document.getElementById("play-rock").addEventListener("click", function() {
   startGame(1);
 });
